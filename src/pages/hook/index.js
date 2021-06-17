@@ -1,11 +1,17 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useContext } from 'react';
 import './index.less';
 
 function Hook() {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(() => {
+    return 10
+  });
 
   useEffect(() => {
+    console.log(1);
+  }, [])
 
+  useLayoutEffect(() => {
+    console.log(2);
   }, [])
 
   return (
