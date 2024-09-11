@@ -1,23 +1,26 @@
-import React, { useState, useEffect, useLayoutEffect, useContext } from 'react';
+import React, { useState, useEffect, useRef,useLayoutEffect, useContext, useCallback } from 'react';
 import './index.less';
 
 function Hook() {
-  const [count, setCount] = useState(() => {
-    return 10
-  });
+  const [count, setCount] = useState(1);
+  const handle = useCallback(() => {
+    setCount(count + 1)
+  }, [count])
 
   useEffect(() => {
-    console.log(1);
-  }, [])
+    setTimeout(() => {
+      setCount(count => count + 1)
+    }, 500)
+  }, [count])
 
-  useLayoutEffect(() => {
-    console.log(2);
-  }, [])
+  useCallback(() => {
+    console.log('useCallback' + count);
+  })
 
   return (
     <div className="hook_index">
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
+      <p>{count}</p>
+      <button onClick={handle}>
         Click me
       </button>
     </div>

@@ -29,9 +29,9 @@ yarn analyze // 分析 Bundle (包) 大小
 ## 代码说明
 
 1. 全局变量
-    - $axios RESTful 请求
-    - $config 全局公共变量
-    - $cookie 全局 cookie 操作方法
+- $axios RESTful 请求
+- $config 全局公共变量
+- $cookie 全局 cookie 操作方法
 
 2. 本地缓存 localStorage
 
